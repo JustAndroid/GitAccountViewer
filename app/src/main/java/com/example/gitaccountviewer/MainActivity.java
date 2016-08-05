@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.setMessage("Senting request.");
             progressDialog.show();
         } else {
-            progressDialog.hide();
+
             showInfoDialog("Error!", "Check internet connection.", "Ok!");
         }
 
