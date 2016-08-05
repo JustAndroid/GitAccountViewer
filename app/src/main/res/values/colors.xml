@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#4078C0</color>
+    <color name="colorPrimaryDark">#87acdc</color>
+    <color name="colorAccent">#D3D9E0</color>
+    <color name="backgroundActivity">#489bbf</color>
+    <color name="toolBar">#1b7eb7</color>
+</resources>
