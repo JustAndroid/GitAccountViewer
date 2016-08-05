@@ -62,15 +62,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GithubUser> call, Response<GithubUser> response) {
                 if (response.isSuccessful()) {
+
                     Intent intent = new Intent(MainActivity.this, AccountInfoActivity.class);
-                    System.out.println(response.body().getName());
-                    intent.putExtra(LINK_AVATAR, response.body().getAvatarUrl());
+
+    intent.putExtra(LINK_AVATAR, response.body().getAvatarUrl());
+
+    if(response.body().getName() != null){
+        intent.putExtra(USER_NAME, response.body().getName());
+    }else{
+        intent.putExtra(USER_NAME, response.body().getLogin());
+
+    }
+
                     intent.putExtra(ENTERED_USER_NAME, editText.getText().toString());
 //                    intent.putExtra(USER_GIT_NAME, response.body().getName());
-                    intent.putExtra(USER_NAME, response.body().getLogin());
-                    intent.putExtra(USER_COMPANY, response.body().getCompany());
-                    intent.putExtra(USER_EMAIL, response.body().getEmail().toString());
-
+                    if(response.body().getCompany() != null) {
+                        intent.putExtra(USER_COMPANY, response.body().getCompany());
+                    }
+                    else{
+                        intent.putExtra(USER_COMPANY, "Not have company");
+                    }
+                    if(response.body().getCompany() != null) {
+                        intent.putExtra(USER_EMAIL, response.body().getEmail());
+                    }
+                    else{
+                        intent.putExtra(USER_EMAIL, "Not have email");
+                    }
                     progressDialog.hide();
                     startActivity(intent);
                 } else {
