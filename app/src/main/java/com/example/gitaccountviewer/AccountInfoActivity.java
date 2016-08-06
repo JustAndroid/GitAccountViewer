@@ -111,7 +111,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AppBarLayo
 
         GitAPI service = client.create(GitAPI.class);
 
-        Call<Repos[]> call = service.getRepos(intent.getStringExtra(MainActivity.USER_NAME));
+        Call<Repos[]> call = service.getRepos(intent.getStringExtra(MainActivity.USER_LOGIN));
 
         call.enqueue(new Callback<Repos[]>() {
             @Override

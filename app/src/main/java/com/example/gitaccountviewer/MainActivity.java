@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String USER_GIT_NAME = "git_name";
     public static final String USER_EMAIL = "email";
     public static final String USER_COMPANY = "company";
+    public static final String USER_LOGIN = "login";
+
     //todo Add all information
     private static AlertDialog.Builder builder;
     private ProgressDialog progressDialog;
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(USER_NAME, response.body().getLogin());
 
     }
-
+                    intent.putExtra(USER_LOGIN, response.body().getLogin());
                     intent.putExtra(ENTERED_USER_NAME, editText.getText().toString());
 //                    intent.putExtra(USER_GIT_NAME, response.body().getName());
                     if(response.body().getCompany() != null) {
